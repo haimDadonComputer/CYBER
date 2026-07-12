@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>דיגיטוליה - יום סייבר חוויתי</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell" id="appShell">
+    <header class="topbar">
+      <button class="icon-button menu-toggle" id="menuToggle" type="button" aria-label="תפריט מדריך">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="brand">
+        <span class="brand-mark"></span>
+        <div>
+          <strong>דיגיטוליה</strong>
+          <small>יחידת הסייבר הטובה</small>
+        </div>
+      </div>
+      <div class="progress-strip" id="progressStrip" aria-label="התקדמות"></div>
+    </header>
+
+    <aside class="teacher-menu" id="teacherMenu" aria-hidden="true">
+      <h2>תפריט מוסתר</h2>
+      <button id="fullscreenBtn" type="button">מסך מלא</button>
+      <button id="printablesBtn" type="button">ערכת הדפסה</button>
+      <button id="resetBtn" type="button">איפוס התקדמות</button>
+      <label for="jumpSelect">קפיצה למסך</label>
+      <select id="jumpSelect"></select>
+    </aside>
+
+    <main class="stage" id="stage" tabindex="-1"></main>
+
+    <footer class="controls">
+      <button class="nav-button secondary" id="prevBtn" type="button">חזור</button>
+      <button class="nav-button primary" id="nextBtn" type="button">הבא</button>
+    </footer>
+  </div>
+
+  <section class="printables" id="printables" aria-hidden="true">
+    <div class="print-toolbar">
+      <h1>ערכת הדפסה - דיגיטוליה</h1>
+      <div>
+        <button id="closePrintablesBtn" type="button">סגור</button>
+        <button id="printBtn" type="button">הדפס</button>
+      </div>
+    </div>
+
+    <article class="print-page">
+      <h2>כרטיסי סיסמאות</h2>
+      <div class="print-grid cards-3" id="passwordCards"></div>
+    </article>
+
+    <article class="print-page">
+      <h2>תגי מספר וכתובת מחשב</h2>
+      <div class="print-grid cards-4" id="ipCards"></div>
+    </article>
+
+    <article class="print-page">
+      <h2>כרטיסי תקלות</h2>
+      <div class="print-grid cards-2" id="symptomCards"></div>
+    </article>
+
+    <article class="print-page">
+      <h2>כרטיסי רמזים</h2>
+      <div class="print-grid cards-2" id="clueCards"></div>
+    </article>
+
+    <article class="print-page certificate-page">
+      <div class="certificate">
+        <p class="certificate-kicker">עיריית דיגיטוליה מעניקה בזאת</p>
+        <h2>תעודת סוכן סייבר</h2>
+        <p>ליחידת הסייבר הצעירה שהגנה על העיר, אספה רמזים, חשבה כמו בלשים טובים ולמדה לשמור על העולם הדיגיטלי.</p>
+        <div class="certificate-seal">דיגיטוליה</div>
+      </div>
+    </article>
+  </section>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
