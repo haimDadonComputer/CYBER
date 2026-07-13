@@ -73,28 +73,28 @@ const missions = [
     number: 3,
     zone: "ip-zone",
     title: "מי אתה בכלל?",
-    concept: "כתובת מחשב",
+    concept: "סימן יעד",
     badge: "מאתר כתובות",
-    clue: "המחשב החשוד לא זוהה לפי שם, אלא לפי כתובת דיגיטלית שעזרה למצוא אותו בעיר.",
-    analogy: "כתובת IP היא כמו כתובת בית למחשב. במקום רחוב, בניין וקומה, יש מספרים שעוזרים להודעות למצוא יעד.",
+    clue: "היעד החשוד לא זוהה לפי שם. סימני הכתובת שעל המעטפה עזרו למצוא לאיזה בית ההודעה ניסתה להגיע.",
+    analogy: "כתובת דיגיטלית היא כמו סימן על מעטפה: גג אדום, שער ירוק וכוכב ליד הדלת. הסימנים עוזרים לשליח למצוא בית.",
     tool: "ip",
     challenge: {
       title: "לאן לשלוח את ההודעה?",
-      text: "כתובת אחת זוהרת על המפה. נובה מחפשת מה התפקיד שלה בעיר.",
+      text: "מעטפה אחת זוהרת על המפה. על המעטפה יש סימנים שמובילים לבית אחד.",
       choices: [
-        ["למצוא יעד", "נכון. כתובת עוזרת להודעה לדעת לאן ללכת."],
-        ["לקשט מחשב", "כתובת לא מקשטת. היא עוזרת לנווט."],
-        ["להסתיר הכול", "כתובת דווקא עוזרת לזהות יעד ברשת."],
-        ["להפעיל משחק", "משחקים יכולים להשתמש ברשת, אבל כתובת היא בשביל למצוא דרך."]
+        ["למצוא בית", "נכון. סימני הכתובת עוזרים להודעה למצוא בית."],
+        ["לקשט את המעטפה", "הסימנים יפים, אבל הם בעיקר עוזרים למצוא יעד."],
+        ["להסתיר את הדרך", "הסימנים דווקא מראים לשליח לאן ללכת."],
+        ["להדליק מנורה", "מנורה יכולה לעזור לראות, אבל כתובת עוזרת למצוא מקום."]
       ]
     },
     quiz: {
-      question: "למה מחשב צריך כתובת?",
+      question: "למה הודעה צריכה סימני כתובת?",
       answers: [
-        ["כדי שהודעות ימצאו אותו", true, "בדיוק. כמו כתובת על מעטפה."],
+        ["כדי למצוא את הבית הנכון", true, "בדיוק. כמו סימנים על מעטפה."],
         ["כדי למחוק קבצים", false, "כתובת לא מוחקת. היא עוזרת למצוא."],
-        ["כדי שיהיה לו שם יפה", false, "שם יפה נחמד, אבל כתובת מוצאת מקום."],
-        ["כדי לצבוע את המסך", false, "המסך לא צריך כתובת בשביל צבע."]
+        ["כדי שיהיה לה שם יפה", false, "שם יפה נחמד, אבל סימן עוזר להגיע."],
+        ["כדי לצבוע את המסך", false, "צבע למסך לא עוזר לשליח למצוא בית."]
       ]
     }
   },
@@ -183,10 +183,10 @@ const storyDetails = {
     place: "רחוב הכתובות",
     areaDescription: "ברחוב הזה לכל מחשב יש כתובת משלו. בלי כתובת, אפילו הודעה חכמה לא יודעת לאיזו דלת לדפוק.",
     problem: "חדר הבקרה רואה מחשב חשוד, אבל אין עליו שם או תמונה.",
-    sign: "במפה מופיעים ארבעה מספרים זוהרים שמצביעים על בית אחד.",
+    sign: "במפה מופיעים סימנים על מעטפה: גג אדום, שער ירוק וכוכב קטן.",
     question: "איך שולחים הודעה למחשב אם לא יודעים איפה הוא גר?",
-    toolGoal: "נבנה כתובת מחשב ונאתר את הבית הדיגיטלי שלה.",
-    discovery: "כתובת מחשב עוזרת למצוא יעד, כמו כתובת על מעטפה."
+    toolGoal: "נחפש בית לפי סימנים פשוטים שעל המעטפה.",
+    discovery: "סימני כתובת עוזרים למצוא יעד, כמו סימנים על מעטפה."
   },
   malware: {
     place: "מרפאת המחשבים",
@@ -272,17 +272,7 @@ const introScenes = [
   }
 ];
 
-const scenes = [...introScenes, ...missions.flatMap(buildMissionScenes), { id: "finale", title: "פענוח התעלומה", area: "finale", action: "finale", caption: "כל הרמזים נדלקים יחד ומראים את הדרך שבה צל-בייט עבר בעיר.", dialogue: [
-  ["nova", "עצרו רגע והסתכלו על כל הרמזים יחד. הם כבר לא נראים כמו חלקים נפרדים."],
-  ["mayor", "סיסמאות חלשות פתחו דלת. הודעות עברו בתחנות. כתובת מחשב גילתה יעד."],
-  ["nova", "רוגלה ניסתה להציץ, ומנהל המשימות הראה מי עובד קשה מדי ברקע."],
-  ["shadow", "חשבתי שכל רמז יישאר לבד..."],
-  ["nova", "אבל יחידת סייבר טובה מחברת סימנים. ככה מגינים על עיר."]
-]}, { id: "bonus", title: "חדר הבקרה האחרון", area: "bonus", action: "bonus", caption: "העיר חוזרת לשגרה, ונובה מבקשת לבחור הרגל סייבר לחיים האמיתיים.", dialogue: [
-  ["mayor", "דיגיטוליה חוזרת לעבוד. עכשיו נשאר לבחור איזה הרגל יישאר איתנו גם מחוץ לעיר."],
-  ["nova", "הרגל אחד מהעיר יכול ללכת איתנו גם החוצה, אל החיים האמיתיים."],
-  ["city", "העיר מודה ליחידת הסייבר הצעירה. האורות חוזרים לדלוק."]
-]}];
+const scenes = [];
 
 const rewrittenIntroScenes = [
   {
@@ -550,58 +540,58 @@ const rewrittenMissionScenes = {
   ip: [
     {
       title: "סמטת הכתובות",
-      caption: "בתים צבעוניים עומדים בשורה, ועל כל שער זוהר מקום ריק לכתובת.",
+      caption: "בתים צבעוניים עומדים בשורה, ועל כל שער יש סימנים קטנים: צבע, צורה וסמל.",
       dialogue: [
-        ["mayor", "ברוכים לסמטת הכתובות. כאן כל בית יודע איך למצוא את השכנים שלו."],
-        ["nova", "גם מחשב צריך כתובת. אחרת הודעה מסתובבת ושואלת: איפה הבית?"],
-        ["shadow", "כתובות הן דבר שימושי. במיוחד כשמישהו משאיר חלון פתוח."]
+        ["mayor", "ברוכים לסמטת הכתובות. כאן לא מחפשים לפי שם, אלא לפי סימנים."],
+        ["nova", "הודעה היא כמו שליח קטן. אם יש לה סימנים טובים, היא יודעת לאיזה בית להגיע."],
+        ["shadow", "סימנים הם דבר שימושי. במיוחד כשמישהו משאיר חלון פתוח."]
       ]
     },
     {
       title: "הבית בלי השם",
-      caption: "אחד הבתים מהבהב. הדואר עומד מולו ולא יודע למי למסור.",
+      caption: "הדואר עומד באמצע הרחוב עם מעטפה, אבל על המעטפה חסר רמז ברור.",
       dialogue: [
         ["city", "שליח הגיע עם הודעה, אבל הבית שאל: אתה בטוח שזה בשבילי?"],
-        ["mayor", "בית שלא מזהים אותו גורם לכל הרחוב להתבלבל."],
-        ["nova", "יש כאן כתובת חסרה. לא שם יפה, אלא סימן שמוביל למקום."]
+        ["mayor", "בית בלי סימן ברור גורם לכל הרחוב להתבלבל."],
+        ["nova", "לא צריך מספרים קשים. צריך סימנים שהשליח יכול לזהות."]
       ]
     },
     {
-      title: "ארבע קוביות אור",
-      caption: "ארבע קוביות מרחפות מעל השער, כמו ארבע אבנים בשביל.",
+      title: "שלושה סימנים",
+      caption: "על המעטפה מופיעים גג אדום, שער ירוק וכוכב קטן.",
       dialogue: [
-        ["nova", "כתובת מחשב בנויה מחלקים. כמו רחוב, בית, קומה ודלת."],
-        ["mayor", "אם חלק אחד נעלם, השליח עלול להגיע לשכן עם העציץ הגדול."],
-        ["shadow", "השכן עם העציץ דווקא נחמד. הוא לא שואל שאלות."]
+        ["nova", "הסימנים על המעטפה הם כמו פירורים בדרך: גג, שער וסמל."],
+        ["mayor", "אם סימן אחד לא מתאים, השליח עלול להגיע לבית של השכן."],
+        ["shadow", "השכן דווקא נחמד. הוא לא שואל שאלות."]
       ]
     },
     {
-      title: "רחוב, בית, דלת",
+      title: "מעטפה עם רמז",
       action: "analogy",
-      caption: "חלון האור הופך את הקוביות לרחוב קטן עם שביל ברור.",
+      caption: "חלון האור מצייר מעטפה ושביל קטן שמוביל אל בית אחד.",
       dialogue: [
-        ["nova", "IP הוא שם קצר לכתובת של מחשב."],
-        ["mayor", "לא צריך לפחד מהאותיות. זה פשוט שלט שמראה לאן הודעה הולכת."],
-        ["nova", "כמו מעטפה בלי כתובת: היא רוצה להגיע, אבל צריכה סימן."]
+        ["nova", "האותיות IP הן שם קצר לרעיון פשוט: איך הודעה מוצאת יעד."],
+        ["mayor", "בסמטה שלנו זה נראה כמו סימנים על מעטפה."],
+        ["nova", "אם הסימנים מתאימים לבית, השליח מחייך ומוסר את ההודעה."]
       ]
     },
     {
-      title: "בונה הכתובת",
+      title: "המעטפה נפתחת",
       action: "tool-intro",
-      caption: "שער הסמטה פותח ארבעה מקומות ריקים, וכל מקום מחכה לקוביית אור.",
+      caption: "מעטפה זוהרת נפתחת, ועליה שלושה סימנים שמחפשים בית מתאים.",
       dialogue: [
-        ["mayor", "השער הזה לא אוהב ניחושים. הוא אוהב כתובות מסודרות."],
-        ["nova", "כשארבע הקוביות מסתדרות, העיר יודעת לאיזה מחשב לגשת."],
-        ["shadow", "רק אל תסדרו אותן יפה מדי. אני מסתתר טוב בבלגן."]
+        ["mayor", "הסמטה הזאת לא אוהבת ניחושים. היא אוהבת סימנים ברורים."],
+        ["nova", "כשהסימנים על המעטפה מתאימים לבית, הדרך נדלקת."],
+        ["shadow", "רק אל תמצאו את הבית מהר מדי. אני מסתתר טוב בבלגן."]
       ]
     },
     {
-      title: "השער מוצא בית",
+      title: "השליח מחפש בית",
       action: "ip",
-      caption: "הקוביות נכנסות למקומן, וקו אור מחפש בית מתאים בסמטה.",
+      caption: "ארבעה בתים עומדים בסמטה. רק אחד מתאים לכל הסימנים שעל המעטפה.",
       dialogue: [
-        ["city", "קובייה ראשונה נדלקת. השביל מתעורר."],
-        ["nova", "כל חלק בכתובת מצמצם את החיפוש."],
+        ["city", "המעטפה זוהרת. השביל מחכה לבית הנכון."],
+        ["nova", "כל סימן מוריד בית אחד מהרשימה."],
         ["mayor", "בסוף לא מחפשים את כל העיר. מחפשים דלת אחת."]
       ]
     },
@@ -855,7 +845,7 @@ const rewrittenFinaleScene = {
   dialogue: [
     ["city", "מפתח. גשר. כתובת. מרפאה. מגדל. חמש נקודות מאירות יחד."],
     ["mayor", "צל-בייט לא היה קוסם. הוא הלך דרך מקומות שלא שמו לב אליהם."],
-    ["nova", "מפתח קל מדי פתח שער. תחנה מבולבלת עיכבה הודעה. כתובת הראתה יעד."],
+    ["nova", "מפתח קל מדי פתח שער. תחנה מבולבלת עיכבה הודעה. סימני כתובת הראו יעד."],
     ["mayor", "תסמין קטן גילה מציץ, ורעש במגדל הסתיר עבודה מוזרה."],
     ["shadow", "אז ראיתם את הדרך שלי. זה לא אומר שתתפסו אותי בפעם הבאה."],
     ["nova", "בפעם הבאה העיר כבר תדע להקשיב לפירורים מוקדם יותר."]
@@ -1077,7 +1067,7 @@ function renderStoryScene(sceneItem) {
   const speaker = speakers[line[0]] || speakers.nova;
   const mission = sceneItem.missionId ? missionById(sceneItem.missionId) : null;
   const actionVisible = state.lineIndex >= sceneItem.dialogue.length - 1;
-  const fullscreenTool = sceneItem.action === "network" && actionVisible;
+  const fullscreenTool = ["password", "network", "ip", "malware", "tasks"].includes(sceneItem.action) && actionVisible;
   const background = backgroundForScene(sceneItem, line[0]);
   const shadowActive = line[0] === "shadow" || sceneItem.area.includes("trouble");
 
@@ -1171,6 +1161,11 @@ function shuffledForKey(key, items, options = {}) {
     state.orders[key] = order;
     saveState();
   }
+  if (options.avoidCorrectFirst && items[state.orders[key]?.[0]]?.[1] === true && state.orders[key].length > 1) {
+    const swapIndex = 1 + Math.floor(Math.random() * (state.orders[key].length - 1));
+    [state.orders[key][0], state.orders[key][swapIndex]] = [state.orders[key][swapIndex], state.orders[key][0]];
+    saveState();
+  }
   return state.orders[key].map((index) => items[index]).filter(Boolean);
 }
 
@@ -1217,6 +1212,7 @@ function attachActionHandlers(sceneItem, mission) {
       const key = sceneItem.action === "quiz" ? `quiz-${mission.id}` : mission ? `challenge-${mission.id}` : "bonus";
       state.feedback[key] = button.dataset.feedback;
       saveState();
+      document.querySelectorAll(".choice-button").forEach((item) => item.classList.remove("correct", "wrong"));
       button.classList.toggle("correct", button.dataset.correct === "true");
       button.classList.toggle("wrong", button.dataset.correct === "false");
       const feedbackTarget = document.getElementById(sceneItem.action === "quiz" ? "quizFeedback" : "challengeFeedback");
@@ -1303,7 +1299,7 @@ function renderMalwareTool() {
 }
 
 function renderTaskManagerTool() {
-  const rows = [["ציור-כיתה", "4%", "120MB", "low"], ["דפדפן עם לשוניות", "28%", "720MB", "mid"], ["FreeGame.exe", "90%", "980MB", "high"], ["מערכת העיר", "7%", "260MB", "low"]];
+  const rows = [["ציור-כיתה", "4%", "מעט", "low"], ["דפדפן עם לשוניות", "28%", "הרבה", "mid"], ["משחק-חינם", "90%", "המון", "high"], ["מערכת העיר", "7%", "רגיל", "low"]];
   return `<h3>מנהל משימות מדומה <span class="term-chip">CPU</span> <span class="term-chip">RAM</span></h3><table class="task-table"><thead><tr><th>תוכנה</th><th>CPU</th><th>RAM</th><th></th></tr></thead><tbody>${rows.map(([name, cpu, ram, risk]) => `<tr><td>${name}</td><td class="${risk === "high" ? "risk-high" : risk === "mid" ? "risk-mid" : ""}">${cpu}</td><td>${ram}</td><td><button class="small-button process-check" data-risk="${risk}">בדוק</button></td></tr>`).join("")}</tbody></table><p class="mini-feedback" id="taskFeedback">חפשו עומס בלי סיבה.</p>`;
 }
 
@@ -1394,6 +1390,7 @@ function attachIpHandlers() {
 
 let selectedSymptom = null;
 function attachMalwareHandlers() {
+  selectedSymptom = null;
   document.querySelectorAll(".symptom").forEach((button) => {
     button.addEventListener("click", () => {
       selectedSymptom = button;
@@ -1436,10 +1433,10 @@ function attachTaskHandlers() {
 
 function renderPrintables() {
   const passwords = ["123456", "qwerty", "haim", "123123", "password", "abc123", "Noam2015", "ענן-כחול!72", "שלושה-מפתחות#48"];
-  const ips = ["15", "33", "81", "142", "192", "168", "1", "25"];
+  const addressCards = ["גג אדום", "שער ירוק", "כוכב ליד הדלת", "גג סגול", "שער כחול", "פרח ליד הדלת", "בית הכוכב", "בית הגינה"];
   const symptoms = ["המחשב נהיה איטי", "קבצים נעלמו", "נפתחו חלונות מוזרים", "העכבר זז לבד", "פרסומות קופצות", "תוכנה מבקשת מידע אישי"];
   document.getElementById("passwordCards").innerHTML = passwords.map((item) => `<div class="print-card"><strong>כרטיס סיסמה</strong><p>${item}</p></div>`).join("");
-  document.getElementById("ipCards").innerHTML = ips.map((item) => `<div class="print-card"><strong>תג מספר</strong><p>${item}</p></div>`).join("");
+  document.getElementById("ipCards").innerHTML = addressCards.map((item) => `<div class="print-card"><strong>סימן כתובת</strong><p>${item}</p></div>`).join("");
   document.getElementById("symptomCards").innerHTML = symptoms.map((item) => `<div class="print-card"><strong>כרטיס תקלה</strong><p>${item}</p></div>`).join("");
   document.getElementById("clueCards").innerHTML = missions.map((mission) => `<div class="print-card"><strong>רמז ${mission.number}</strong><p>${mission.clue}</p></div>`).join("");
 }

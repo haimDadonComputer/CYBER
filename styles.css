@@ -1980,6 +1980,35 @@ body {
   height: 28px;
 }
 
+.story-game.tool-fullscreen .address-card {
+  min-height: 56px;
+  padding: 8px 12px;
+}
+
+.story-game.tool-fullscreen .house-grid {
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.story-game.tool-fullscreen .house-card {
+  min-height: 76px;
+  padding: 8px;
+}
+
+.story-game.tool-fullscreen .house-roof {
+  width: 42px;
+  height: 24px;
+}
+
+.story-game.tool-fullscreen .address-path {
+  min-height: 32px;
+  margin-top: 6px;
+}
+
+.story-game.tool-fullscreen .mini-feedback {
+  min-height: 28px;
+}
+
 .hologram-window .task-table th,
 .hologram-window .task-table td {
   padding: 8px;
