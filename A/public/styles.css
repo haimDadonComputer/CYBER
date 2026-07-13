@@ -23,8 +23,17 @@ body {
   min-height: 100%;
 }
 
+html {
+  background:
+    radial-gradient(circle at 14% 16%, rgba(255, 216, 77, 0.24), transparent 24%),
+    radial-gradient(circle at 78% 8%, rgba(54, 197, 255, 0.22), transparent 24%),
+    radial-gradient(circle at 72% 84%, rgba(67, 227, 133, 0.18), transparent 28%),
+    linear-gradient(140deg, #32115f 0%, #681b69 48%, #173f64 100%);
+}
+
 body {
   margin: 0;
+  min-height: 100vh;
   color: var(--text);
   background:
     radial-gradient(circle at 14% 16%, rgba(255, 216, 77, 0.24), transparent 24%),
@@ -46,6 +55,7 @@ button {
 
 .app {
   min-height: 100vh;
+  background: inherit;
 }
 
 .screen {
